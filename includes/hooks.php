@@ -154,9 +154,14 @@ add_action( 'admin_enqueue_scripts', 'ws_ls_enqueue_admin_files');
  */
 function ws_ls_enqueue_ui_kit() {
 
-	wp_enqueue_script('ws-ls-uikit', plugins_url('../assets/uikit/js/uikit.min.js', __FILE__), [], WE_LS_CURRENT_VERSION, true);
-	wp_enqueue_script('ws-ls-uikit-icons', plugins_url('../assets/uikit/js/uikit-icons.min.js', __FILE__), [], WE_LS_CURRENT_VERSION, true);
-	wp_enqueue_style('ws-ls-uikit-css', plugins_url('../assets/uikit/css/uikit.min.css', __FILE__), [], WE_LS_CURRENT_VERSION);
+//	wp_enqueue_script('ws-ls-uikit', plugins_url('../assets/uikit/js/uikit.min.js', __FILE__), [], WE_LS_CURRENT_VERSION, true);
+//	wp_enqueue_script('ws-ls-uikit-icons', plugins_url('../assets/uikit/js/uikit-icons.min.js', __FILE__), [], WE_LS_CURRENT_VERSION, true);
+//	wp_enqueue_style('ws-ls-uikit-css', plugins_url('../assets/uikit/css/uikit.min.css', __FILE__), [], WE_LS_CURRENT_VERSION);
+
+
+	wp_enqueue_script('ws-ls-uikit', "https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit.min.js", [], WE_LS_CURRENT_VERSION, false);
+	wp_enqueue_script('ws-ls-uikit-icons', "https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/js/uikit-icons.min.js", [ 'ws-ls-uikit' ], WE_LS_CURRENT_VERSION, false );
+	wp_enqueue_style('ws-ls-uikit-css', 'https://cdn.jsdelivr.net/npm/uikit@3.6.22/dist/css/uikit.min.css', [], WE_LS_CURRENT_VERSION);
 }
 
 /**

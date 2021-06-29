@@ -56,8 +56,21 @@ function ws_ls_form_weight( $arguments = [] ) {
 	}
 
 	// Enqueue relevant JS / CSS
-	ws_ls_enqueue_files();
+	//ws_ls_enqueue_files();
 
+	ws_ls_enqueue_ui_kit();
+
+	return '
+	
+	<article class="uk-comment">
+    <header class="uk-comment-header">
+        <img class="uk-comment-avatar" src="" alt="">
+        <h4 class="uk-comment-title"></h4>
+        <ul class="uk-comment-meta uk-subnav"></ul>
+    </header>
+    <div class="uk-comment-body"></div>
+</article
+	';
 
 	$arguments[ 'form-key' ] 	= sprintf( 'ws-ls-form-%d', $ws_ls_form_position );	// We need to generate a semi consistent form key that will hopefully remain the same between page loads. This is for the JS focus
 	$arguments  				= ws_ls_form_init( $arguments );
@@ -454,7 +467,7 @@ function ws_ls_form_field_textarea( $arguments = [] ) {
 		$html .= sprintf( '<label for="%1$s" class="yk-mt__label %3$s">%2$s</label>', $arguments[ 'name' ], $arguments[ 'title' ], $arguments[ 'css-class' ] );
 	}
 
-	$html .= sprintf( '<textarea name="%1$s" id="%1$s" tabindex="%2$d" placeholder="%3$s" cols="%4$d" rows="%5$d" class="%6$s" >%7$s</textarea>',
+	$html .= sprintf( '<textarea name="%1$s" id="%1$s" tabindex="%2$d" placeholder="%3$s" cols="%4$d" rows="%5$d" class="%6$s ui-textarea" >%7$s</textarea>',
 		$arguments[ 'name' ],
 		ws_ls_form_tab_index_next(),
 		esc_attr( $arguments[ 'placeholder' ] ),
@@ -498,11 +511,11 @@ function ws_ls_form_field_number( $arguments = [] ) {
 	$html = sprintf( '<div id="%1$s-row" class="ws-ls-form-row">', $arguments[ 'name' ] );
 
 	if ( true === $arguments[ 'show-label' ] ) {
-		$html .= sprintf( '<label for="%1$s" class="yk-mt__label %3$s">%2$s</label>', $arguments[ 'name' ], $arguments[ 'title' ], $arguments[ 'css-class' ] );
+		$html .= sprintf( '<label for="%1$s" class="yk-mt__label %3$s  ">%2$s</label>', $arguments[ 'name' ], $arguments[ 'title' ], $arguments[ 'css-class' ] );
 	}
 
 
-	$html .= sprintf( '<input type="number" name="%1$s" step="%2$s" tabindex="%3$d" value="%4$s" placeholder="%5$s" size="%6$d" class="%7$s" min="%8$s" max="%9$s" />',
+	$html .= sprintf( '<input type="number" name="%1$s" step="%2$s" tabindex="%3$d" value="%4$s" placeholder="%5$s" size="%6$d" class="%7$s ui-form-danger ui-input" min="%8$s" max="%9$s" />',
 		$arguments[ 'name' ],
 		$arguments[ 'step' ],
 		ws_ls_form_tab_index_next(),
