@@ -62,14 +62,25 @@ function ws_ls_form_weight( $arguments = [] ) {
 
 	return '
 	
-	<article class="uk-comment">
-    <header class="uk-comment-header">
-        <img class="uk-comment-avatar" src="" alt="">
-        <h4 class="uk-comment-title"></h4>
-        <ul class="uk-comment-meta uk-subnav"></ul>
+	<article class="yk-uik-comment">
+    <header class="yk-uik-comment-header">
+        <div class="yk-uik-grid-medium yk-uik-flex-middle" yk-uik-grid>
+            <div class="yk-uik-width-auto">
+                <img class="yk-uik-comment-avatar" src="images/avatar.jpg" width="80" height="80" alt="">
+            </div>
+            <div class="yk-uik-width-expand">
+                <h4 class="yk-uik-comment-title yk-uik-margin-remove"><a class="yk-uik-link-reset" href="#">Author</a></h4>
+                <ul class="yk-uik-comment-meta yk-uik-subnav yk-uik-subnav-divider yk-uik-margin-remove-top">
+                    <li><a href="#">12 days ago</a></li>
+                    <li><a href="#">Reply</a></li>
+                </ul>
+            </div>
+        </div>
     </header>
-    <div class="uk-comment-body"></div>
-</article
+    <div class="yk-uik-comment-body">
+        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+    </div>
+</article>
 	';
 
 	$arguments[ 'form-key' ] 	= sprintf( 'ws-ls-form-%d', $ws_ls_form_position );	// We need to generate a semi consistent form key that will hopefully remain the same between page loads. This is for the JS focus
